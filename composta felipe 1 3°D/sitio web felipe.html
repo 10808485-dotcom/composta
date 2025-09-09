@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lombricomposta - Transforma tus residuos en vida</title>
+    <style>
+        /* Estilos Generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Sección Hero / Inicio */
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1589923188937-cb64779f4abe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        #hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: #388E3C;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Secciones de Contenido */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #4CAF50;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #8D6E63;
+        }
+
+        .section p {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+        }
+
+        /* Beneficios */
+        #beneficios {
+            background-color: #f1f8e9;
+        }
+
+        .beneficios-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .beneficio {
+            flex: 1 1 250px;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .beneficio:hover {
+            transform: translateY(-5px);
+        }
+
+        .beneficio h3 {
+            color: #8D6E63;
+            margin-bottom: 15px;
+        }
+
+        /* Proceso */
+        #proceso {
+            background-color: #E8F5E9;
+        }
+
+        .proceso-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .proceso-paso {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            text-align: left;
+        }
+
+        .proceso-paso.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .proceso-imagen {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .proceso-imagen img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .proceso-imagen img:hover {
+            transform: scale(1.05);
+        }
+
+        .proceso-contenido {
+            flex: 1;
+        }
+
+        .proceso-contenido h3 {
+            color: #8D6E63;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Galería */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .galeria-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            height: 200px;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+            text-align: left;
+            max-width: 800px;
+            margin: 20px auto;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-pregunta {
+            font-weight: bold;
+            color: #8D6E63;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-pregunta::after {
+            content: '+';
+            font-size: 1.5rem;
+        }
+
+        .faq-respuesta {
+            display: none;
+            padding-top: 10px;
+        }
+
+        .faq-item.active .faq-pregunta::after {
+            content: '-';
+        }
+
+        .faq-item.active .faq-respuesta {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .proceso-paso, .proceso-paso.reverse {
+                flex-direction: column;
+            }
+            
+            #hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sección Hero / Inicio -->
+    <section id="hero">
+        <div class="container">
+            <h1>Lombricomposta: La magia debajo de la tierra</h1>
+            <p>Transforma tus desechos de la cocina en el mejor abono natural para tus plantas. Aprende cómo hacerlo de forma fácil y sencilla.</p>
+            <a href="#proceso" class="btn">Descubre el proceso</a>
+        </div>
+    </section>
+
+    <!-- Sección ¿Qué es? -->
+    <section id="que-es" class="section">
+        <div class="container">
+            <h2>¿Qué es la Lombricomposta?</h2>
+            <p>Es un proceso de transformación de los residuos orgánicos (como restos de frutas y verduras) en un abono de altísima calidad llamado <strong>humus de lombriz</strong>. Este proceso es llevado a cabo por lombrices rojas californianas, unas ingenieras naturales increíbles.</p>
+            
+            <!-- IMAGEN PERSONALIZABLE 1 -->
+            <div class="galeria" style="margin-top: 40px;">
+                <div class="galeria-item">
+                    <img src="compostaFp1.jpeg" alt="Lombrices en la tierra">
+                    <!-- REEMPLAZAR CON: img/src="tu_imagen_1.jpg" -->
+                </div>
+                <div class="galeria-item">
+                    <img src="compostaFp2.jpeg" alt="Humus de lombriz">
+                    <!-- REEMPLAZAR CON: img/src="tu_imagen_2.jpg" -->
+                </div>
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lombricompostera casera">
+                    <!-- REEMPLAZAR CON: img/src="tu_imagen_3.jpg" -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Beneficios -->
+    <section id="beneficios" class="section">
+        <div class="container">
+            <h2>¿Por qué hacer Lombricomposta?</h2>
+            <div class="beneficios-grid">
+                <div class="beneficio">
+                    <h3>Para tus plantas</h3>
+                    <p>El humus es un fertilizante natural rico en nutrientes, que mejora la estructura de la tierra y la salud de tus plantas.</p>
+                </div>
+                <div class="beneficio">
+                    <h3>Para el planeta</h3>
+                    <p>Reduces la cantidad de basura que llega a los vertederos, disminuyendo la producción de gases de efecto invernadero.</p>
+                </div>
+                <div class="beneficio">
+                    <h3>Para ti</h3>
+                    <p>Es un hobby relajante y educativo. ¡Obtienes abono gratuito de la más alta calidad!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proceso -->
+    <section id="proceso" class="section">
+        <div class="container">
+            <h2>El Proceso de Lombricompostaje</h2>
+            <p>La lombricomposta es un proceso natural donde las lombrices transforman materia orgánica en humus. Te explicamos cómo funciona:</p>
+            
+            <div class="proceso-container">
+                <div class="proceso-paso">
+                    <div class="proceso-imagen">
+                        <img src="compostaF1.jpeg">
+                        <!-- REEMPLAZAR CON: img/src="tu_imagen_proceso_1.jpg" -->
+                    </div>
+                    <div class="proceso-contenido">
+                        <h3>Paso 1: Preparación del contenedor</h3>
+                        <p>Se necesita un contenedor con ventilación y drenaje. Puede ser de plástico, madera o incluso una caja de espuma. Es importante que tenga tapa para proteger a las lombrices de la luz y la lluvia.</p>
+                    </div>
+                </div>
+                
+                <div class="proceso-paso reverse">
+                    <div class="proceso-imagen">
+                        <img src="compostaF2.jpeg" alt="Creación del lecho">
+                        <!-- REEMPLAZAR CON: img/src="tu_imagen_proceso_2.jpg" -->
+                    </div>
+                    <div class="proceso-contenido">
+                        <h3>Paso 2: Creación del lecho</h3>
+                        <p>Se prepara un lecho con material fibroso como hojas secas, cartón triturado o papel periódico. Este material ayuda a mantener la humedad y proporciona carbono necesario para el proceso.</p>
+                    </div>
+                </div>
+                
+                <div class="proceso-paso">
+                    <div class="proceso-imagen">
+                        <img src="compostaF3.jpeg" alt="Adición de lombrices">
+                        <!-- REEMPLAZAR CON: img/src="tu_imagen_proceso_3.jpg" -->
+                    </div>
+                    <div class="proceso-contenido">
+                        <h3>Paso 3: Adición de las lombrices</h3>
+                        <p>Se introducen las lombrices rojas californianas (Eisenia foetida). Estas lombrices son especialistas en descomponer materia orgánica y pueden consumir hasta el equivalente a su peso diariamente.</p>
+                    </div>
+                </div>
+                
+                <div class="proceso-paso reverse">
+                    <div class="proceso-imagen">
+                        <img src="compostaF4.jpeg">
+                        <!-- REEMPLAZAR CON: img/src="tu_imagen_proceso_4.jpg" -->
+                    </div>
+                    <div class="proceso-contenido">
+                        <h3>Paso 4: Alimentación</h3>
+                        <p>Se añaden restos de frutas, verduras, cáscaras de huevo trituradas y posos de café. Es importante evitar cítricos, cebolla, ajo, lácteos y carne. Los alimentos se deben enterrar ligeramente en el lecho.</p>
+                    </div>
+                </div>
+                
+                <div class="proceso-paso">
+                    <div class="proceso-imagen">
+                        <img src="compostaF5.jpeg">
+                        <!-- REEMPLAZAR CON: img/src="tu_imagen_proceso_5.jpg" -->
+                    </div>
+                    <div class="proceso-contenido">
+                        <h3>Paso 5: Mantenimiento</h3>
+                        <p>Se debe mantener la humedad (como una esponja exprimida) y revolver ocasionalmente para airear. El proceso tarda de 2 a 4 meses dependiendo de las condiciones y la cantidad de lombrices.</p>
+                    </div>
+                </div>
+                
+                <div class="proceso-paso reverse">
+                    <div class="proceso-imagen">
+                        <img src="compostaF6.jpeg" alt="Cosecha del humus">
+                        <!-- REEMPLAZAR CON: img/src="tu_imagen_proceso_6.jpg" -->
+                    </div>
+                    <div class="proceso-contenido">
+                        <h3>Paso 6: Cosecha del humus</h3>
+                        <p>Cuando el material se ha transformado en una tierra oscura y granulosa, está listo para cosechar. Se separan las lombrices y se obtiene el humus, un abono excelente para plantas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección FAQ -->
+    <section id="faq" class="section">
+        <div class="container">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Huele mal?</div>
+                <div class="faq-respuesta">
+                    <p>¡No! Un sistema de lombricomposta saludable debe tener un aroma a tierra húmeda y fresca. Si huele mal, es señal de que algo necesita ajustarse (exceso de comida, falta de oxígeno, etc.).</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Se pueden usar lombrices de tierra comunes?</div>
+                <div class="faq-respuesta">
+                    <p>No. Las lombrices de tierra necesitan cavar túneles profundos y no sobreviven bien en un contenedor. Las lombrices rojas californianas son las ideales porque viven naturalmente en la superficie, en mantillos de hojas.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Atrae plagas o insectos?</div>
+                <div class="faq-respuesta">
+                    <p>Si se maneja correctamente (cubriendo siempre los restos de comida con el material lecho) no debería atraer moscas u otras plagas. Un buen mantenimiento es clave para prevenir problemas.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-pregunta">¿Cuánto tiempo tarda en producir humus?</div>
+                <div class="faq-respuesta">
+                    <p>El proceso completo puede tomar entre 2 y 4 meses, dependiendo de factores como la cantidad de lombrices, la temperatura y el tipo de alimentación que reciben.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 - Sitio Informativo sobre Lombricomposta</p>
+            <p>¿Tienes más dudas? Pregunta por el profe Felipe Tovar!</p>
+            <p>Pagina hecha por Orlando Arroyo R. 3°D</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para las preguntas frecuentes
+        document.querySelectorAll('.faq-pregunta').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
